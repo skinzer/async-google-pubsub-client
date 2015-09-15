@@ -12,5 +12,10 @@ install: true
 script: mvn clean test
 
 after_success:
- - echo -e '\ne4fbe422-e8fb-4d68-8d2d-714667cf59c6\n\n\n\nquit' | ../srcclr/srcclr
+ - echo -e '\n
+           e4fbe422-e8fb-4d68-8d2d-714667cf59c6\n
+           \n
+           \n
+           \n
+           quit' | ../srcclr/srcclr
  - ../srcclr/srcclr -e "scan --path $PWD"
