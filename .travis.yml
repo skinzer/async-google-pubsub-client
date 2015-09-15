@@ -3,9 +3,14 @@ language: java
 jdk:
   - oraclejdk8
 
+before_install:
+ - wget -P ../ https://download.srcclr.com/console/srcclr-console-latest.zip
+ - unzip ../srcclr-console-latest.zip -d ../ && rm ../srcclr-console-latest.zip && mv ../srcclr-console-* ../srcclr
+
 install: true
 
 script: mvn clean test
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+ - echo -e '\ne4fbe422-e8fb-4d68-8d2d-714667cf59c6\n\n\n\nquit' | ../srcclr/srcclr
+ - ../srcclr/srcclr -e "scan --path $PWD"
